@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.3;net452</TargetFrameworks>
+    <Authors>Derek Greer</Authors>
+    <AssemblyTitle>Chronicle.Timing</AssemblyTitle>
+    <Description>Timing extensions for Chronicle</Description>
+    <PackageTags>chronicle;logging;timing</PackageTags>
+    <PackageProjectUrl>https://github.com/derekgreer/chronicle/</PackageProjectUrl>
+    <PackageIconUrl>https://github.com/derekgreer/chronicle/raw/master/images/ico.png</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/derekgreer/chronicle/raw/master/license.txt</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/derekgreer/chronicle/</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net452'">
+    <PackageReference Include="log4net" Version="[2.0.8,3)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
+    <PackageReference Include="log4net" Version="[2.0.8,3)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Chronicle\Chronicle.csproj" />
+  </ItemGroup>
+
+</Project>
