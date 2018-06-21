@@ -1,6 +1,6 @@
 {
   "name": "Chronicle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "configuration": "Release",
   "description": "A logging abstraction library",
   "dotnetPath": "\"c:/Program Files/dotnet/dotnet.exe\"",
@@ -11,7 +11,7 @@
     "build": "npm-run-all build:* tests package",
     "build:restore": "cross-env globstar -- ${npm_package_dotnetPath} restore \"**/*.sln\" /p:Version=${npm_package_version}",
     "build:build": "cross-env globstar -- ${npm_package_dotnetPath} build \"**/*.sln\" --configuration ${npm_package_configuration} /p:Version=${npm_package_version}",
-     "tests": "cross-env globstar -- ${npm_package_dotnetPath} test \"src/${npm_package_name}.Specs/*.csproj",
+    "tests": "cross-env globstar -- ${npm_package_dotnetPath} test \"src/${npm_package_name}.Specs/*.csproj",
     "package": "npm-run-all package:*",
     "package:main": "cross-env globstar -- ${npm_package_dotnetPath} pack \"./src/**/${npm_package_name}.csproj\" -c ${npm_package_configuration} --no-build -o ../../dist --include-symbols /p:Version=${npm_package_version}",
     "package:dotnetcore": "cross-env globstar -- ${npm_package_dotnetPath} pack \"./src/**/${npm_package_name}.DotNetCore.csproj\" -c ${npm_package_configuration} --no-build -o ../../dist --include-symbols /p:Version=${npm_package_version}",
