@@ -21,7 +21,7 @@ namespace Chronicle.Log4Net
             _map =
                 new Dictionary<LogSeverityLevel, LogWriterProvider>
                 {
-                    {LogSeverityLevel.Verbose, e => log.Info(e.ToString())},
+                    {LogSeverityLevel.Verbose, e => log.Debug(e.ToString())},
                     {LogSeverityLevel.Debug, e => log.Debug(e.ToString())},
                     {LogSeverityLevel.Information, e => log.Info(e.ToString())},
                     {LogSeverityLevel.Warning, e => log.Warn(e.ToString())},
