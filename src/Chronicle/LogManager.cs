@@ -15,5 +15,10 @@ namespace Chronicle
         {
             return _provider(typeof(T));
         }
+
+        public static ILogger GetLogger(Type type)
+        {
+            return _provider(type);
+        }
     }
 }
