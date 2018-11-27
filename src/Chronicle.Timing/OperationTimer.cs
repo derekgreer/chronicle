@@ -7,13 +7,11 @@ namespace Chronicle.Timing
     {
         readonly string _actionName;
         readonly ILogger _logger;
-        readonly IDisposable _scope;
         readonly Stopwatch _stopwatch;
 
         public OperationTimer(ILogger logger, string actionName)
         {
             _logger = logger;
-            _scope = _logger.BeginScope(actionName);
             _actionName = actionName;
             _stopwatch = new Stopwatch();
             _stopwatch.Start();
@@ -34,9 +32,7 @@ namespace Chronicle.Timing
         public void Dispose(bool isDisposing)
         {
             _stopwatch.Stop();
-            _logger.Write(
-                $"Executed operation {_actionName} in {_stopwatch.Elapsed.Hours}:{_stopwatch.Elapsed.Minutes}:{_stopwatch.Elapsed.Seconds}.{_stopwatch.Elapsed.Milliseconds}");
-            _scope?.Dispose();
+            _logger.Write($"Executed operation {_actionName} in {_stopwatch.Elapsed.Hours}:{_stopwatch.Elapsed.Minutes}:{_stopwatch.Elapsed.Seconds}.{_stopwatch.Elapsed.Milliseconds}");
         }
     }
 }
