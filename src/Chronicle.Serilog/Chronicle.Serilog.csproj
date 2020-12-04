@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Authors>Derek Greer</Authors>
+		<AssemblyTitle>Chronicle.Serilog</AssemblyTitle>
+		<Description>A Serilog adaptor for Chronicle</Description>
+		<PackageTags>chronicle;logging;serilog</PackageTags>
+		<PackageProjectUrl>https://github.com/derekgreer/chronicle/</PackageProjectUrl>
+		<PackageIconUrl>https://github.com/derekgreer/chronicle/raw/master/images/ico.png</PackageIconUrl>
+		<PackageLicenseUrl>https://github.com/derekgreer/chronicle/raw/master/license.txt</PackageLicenseUrl>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/derekgreer/chronicle/</RepositoryUrl>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Serilog" Version="2.10.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Chronicle\Chronicle.csproj" />
+	</ItemGroup>
+
+</Project>

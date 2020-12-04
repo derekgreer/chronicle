@@ -2,8 +2,9 @@
 {
     public class LogEntry
     {
-        public LogEntry(string message) : this(message, (LogSeverityLevel) LogSeverityLevel.Information)
-        { }
+        public LogEntry(string message) : this(message, LogSeverityLevel.Information)
+        {
+        }
 
         public LogEntry(string message, LogSeverityLevel severity)
         {
@@ -17,7 +18,7 @@
 
         public override string ToString()
         {
-            return $"{Message}";
+            return System.Security.SecurityElement.Escape(Message);
         }
     }
 }

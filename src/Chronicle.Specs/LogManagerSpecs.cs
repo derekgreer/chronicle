@@ -1,4 +1,8 @@
-﻿using Machine.Specifications;
+﻿using System.Threading;
+using Chronicle.Configuration;
+using Chronicle.Serilog;
+using ExpectedObjects;
+using Machine.Specifications;
 using Moq;
 using It = Machine.Specifications.It;
 
@@ -27,7 +31,7 @@ namespace Chronicle.Specs
             {
                 var loggerStub = new Mock<ILogger>();
                 loggerStub.Setup(x => x.Write(Moq.It.IsAny<LogEntry>())).Callback<LogEntry>(e => _logEntry = e);
-                LogManager.SetLoggerProvider(t => loggerStub.Object);
+                LoggingConfiguration.Configure(ctx => ctx.SetLoggerProvider(t => loggerStub.Object));
                 _logger = LogManager.GetLogger<LogManagerSpecs>();
             };
 
@@ -47,7 +51,7 @@ namespace Chronicle.Specs
             {
                 var loggerStub = new Mock<ILogger>();
                 loggerStub.Setup(x => x.Write(Moq.It.IsAny<LogEntry>())).Callback<LogEntry>(e => _logEntry = e);
-                LogManager.SetLoggerProvider(t => loggerStub.Object);
+                LoggingConfiguration.Configure(ctx => ctx.SetLoggerProvider(t => loggerStub.Object));
                 _logger = LogManager.GetLogger(typeof(LogManagerSpecs));
             };
 

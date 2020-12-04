@@ -1,42 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using Chronicle.Internal;
-using log4net;
+using Serilog;
+using Serilog.Context;
 
-namespace Chronicle.Log4Net
+namespace Chronicle.Serilog
 {
-    public class Log4NetLogger : ILogger
+    public class SerilogLogger : ILogger
     {
         [ThreadStatic] static Stack<object> _scopeStack;
         readonly Dictionary<LogSeverityLevel, LogWriterProvider> _map;
+        readonly global::Serilog.ILogger _logger;
+
         delegate void LogWriterProvider(LogEntry logEntry);
 
         public string ScopeDelimiter { get; set; } = ":";
 
-        public Log4NetLogger(Type type)
+        public SerilogLogger(Type type)
         {
-            var log = log4net.LogManager.GetLogger(type);
+            _logger = Log.ForContext(type);
 
-            _map =
-                new Dictionary<LogSeverityLevel, LogWriterProvider>
-                {
-                    {LogSeverityLevel.Verbose, e => log.Debug(e.ToString())},
-                    {LogSeverityLevel.Debug, e => log.Debug(e.ToString())},
-                    {LogSeverityLevel.Information, e => log.Info(e.ToString())},
-                    {LogSeverityLevel.Warning, e => log.Warn(e.ToString())},
-                    {LogSeverityLevel.Error, e => log.Error(e.ToString())},
-                    {LogSeverityLevel.Critical, e => log.Fatal(e.ToString())}
-                };
+            _map = new Dictionary<LogSeverityLevel, LogWriterProvider>
+            {
+                {LogSeverityLevel.Verbose, e => _logger.Debug(e.ToString())},
+                {LogSeverityLevel.Debug, e => _logger.Debug(e.ToString())},
+                {LogSeverityLevel.Information, e => _logger.Information(e.ToString())},
+                {LogSeverityLevel.Warning, e => _logger.Warning(e.ToString())},
+                {LogSeverityLevel.Error, e => _logger.Error(e.ToString())},
+                {LogSeverityLevel.Critical, e => _logger.Fatal(e.ToString())}
+            };
         }
 
         public void Write(LogEntry logEntry)
         {
             var traceEventType = logEntry.Severity;
-
-            ThreadContext.Properties["scope"] = GetScope();
-            ThreadContext.Properties["tid"] = Thread.CurrentThread.ManagedThreadId.ToString();
 
             if (_map.ContainsKey(traceEventType))
                 _map[traceEventType](logEntry);
@@ -51,7 +49,11 @@ namespace Chronicle.Log4Net
         {
             if (_scopeStack == null)
                 _scopeStack = new Stack<object>();
-            return new DisposableStackItem(_scopeStack, state);
+            var stackItem = new DisposableStackItem(_scopeStack, state);
+
+            var logContext = LogContext.PushProperty("Scope", GetScope());
+
+            return new ComposableDisposable(logContext, stackItem);
         }
 
         string GetScope()

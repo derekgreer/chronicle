@@ -1,26 +1,28 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle", "Chronicle\Chronicle.csproj", "{675D3C5E-834D-4309-BFAF-506D68969EF9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chronicle", "Chronicle\Chronicle.csproj", "{675D3C5E-834D-4309-BFAF-506D68969EF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Specifications", "Specifications", "{079022C1-AB70-4C9D-9E0D-94EFA26C73C0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{26AA878D-113E-4759-B5CB-2B94816238E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle.Log4Net", "Chronicle.Log4Net\Chronicle.Log4Net.csproj", "{E59AAB5D-085F-4894-BA60-A5EB67A0F9F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chronicle.Log4Net", "Chronicle.Log4Net\Chronicle.Log4Net.csproj", "{E59AAB5D-085F-4894-BA60-A5EB67A0F9F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle.DotNetCore", "Chronicle.DotNetCore\Chronicle.DotNetCore.csproj", "{3795FEA3-A963-4E16-A73F-B8314F8EB819}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chronicle.DotNetCore", "Chronicle.DotNetCore\Chronicle.DotNetCore.csproj", "{3795FEA3-A963-4E16-A73F-B8314F8EB819}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle.Timing", "Chronicle.Timing\Chronicle.Timing.csproj", "{6C49F2DC-AECA-4A01-A366-237C42D3D7C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chronicle.Timing", "Chronicle.Timing\Chronicle.Timing.csproj", "{6C49F2DC-AECA-4A01-A366-237C42D3D7C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle.Specs", "Chronicle.Specs\Chronicle.Specs.csproj", "{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chronicle.Specs", "Chronicle.Specs\Chronicle.Specs.csproj", "{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{975E57F2-48D5-43D3-B6A2-1C79B736C76A}"
 	ProjectSection(SolutionItems) = preProject
 		..\package.json = ..\package.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chronicle.Serilog", "Chronicle.Serilog\Chronicle.Serilog.csproj", "{117F92E5-C8BA-4559-8B7E-6F9083390609}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{117F92E5-C8BA-4559-8B7E-6F9083390609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{117F92E5-C8BA-4559-8B7E-6F9083390609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{117F92E5-C8BA-4559-8B7E-6F9083390609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{117F92E5-C8BA-4559-8B7E-6F9083390609}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,9 @@ Global
 		{3795FEA3-A963-4E16-A73F-B8314F8EB819} = {26AA878D-113E-4759-B5CB-2B94816238E8}
 		{6C49F2DC-AECA-4A01-A366-237C42D3D7C1} = {26AA878D-113E-4759-B5CB-2B94816238E8}
 		{9D9AA173-40E1-42D0-A4F7-77D5FF1AB9A9} = {079022C1-AB70-4C9D-9E0D-94EFA26C73C0}
+		{117F92E5-C8BA-4559-8B7E-6F9083390609} = {26AA878D-113E-4759-B5CB-2B94816238E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A3C49DC3-DB6D-4F68-9E99-F993806A63B1}
 	EndGlobalSection
 EndGlobal

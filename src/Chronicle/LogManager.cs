@@ -4,21 +4,14 @@ namespace Chronicle
 {
     public static class LogManager
     {
-        static Func<Type, ILogger> _provider = category => new NullLogger();
-
-        public static void SetLoggerProvider(Func<Type, ILogger> provider)
-        {
-            _provider = provider;
-        }
-
         public static ILogger GetLogger<T>()
         {
-            return _provider(typeof(T));
+            return Context.LogContext.LoggerProvider(typeof(T));
         }
 
         public static ILogger GetLogger(Type type)
         {
-            return _provider(type);
+            return Context.LogContext.LoggerProvider(type);
         }
     }
 }

@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ExpectedObjects" Version="2.3.6" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -17,10 +18,16 @@
     <PackageReference Include="Machine.Specifications.Should" Version="0.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="Moq" Version="4.10.0" />
+    <PackageReference Include="Serilog.Sinks.ListOfString" Version="4.1.4.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Chronicle.Serilog\Chronicle.Serilog.csproj" />
     <ProjectReference Include="..\Chronicle\Chronicle.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Domain\" />
   </ItemGroup>
 
 </Project>

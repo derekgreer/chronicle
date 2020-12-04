@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Chronicle.Log4Net
+namespace Chronicle.Internal
 {
     public class DisposableStackItem : IDisposable
     {

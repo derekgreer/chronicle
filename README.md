@@ -31,3 +31,4 @@ namespace MyCompany.Application.Initialization
 }
 ```
 
+For more examples, see the [documentation](https://github.com/derekgreer/chronicle/wiki) or [browse the specifications](https://github.com/derekgreer/chronicle/tree/master/src/Chronicle.Specs).
