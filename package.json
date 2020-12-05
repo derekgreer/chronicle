@@ -19,10 +19,11 @@
     "package:serilog": "cross-env globstar -- ${npm_package_dotnetPath} pack \"./src/**/${npm_package_name}.Serilog.csproj\" -c ${npm_package_configuration} --no-build -o dist --include-symbols /p:Version=${npm_package_version}",
     "package:timing": "cross-env globstar -- ${npm_package_dotnetPath} pack \"./src/**/${npm_package_name}.Timing.csproj\" -c ${npm_package_configuration} --no-build -o dist --include-symbols /p:Version=${npm_package_version}",
     "publish": "npm-run-all publish:*",
-    "publish:main": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.${npm_package_version}.nupkg --source ${npm_package_publishSource}",
-    "publish:timing": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.Timing.${npm_package_version}.nupkg --source ${npm_package_publishSource}",
-    "publish:dotnetcore": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.DotNetCore.${npm_package_version}.nupkg --source ${npm_package_publishSource}",
-    "publish:log4net": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.Log4Net.${npm_package_version}.nupkg --source ${npm_package_publishSource}"
+    "publish:main": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.${npm_package_version}.nupkg --source ${npm_package_publishSource} --skip-duplicate",
+    "publish:timing": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.Timing.${npm_package_version}.nupkg --source ${npm_package_publishSource} --skip-duplicate",
+    "publish:dotnetcore": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.DotNetCore.${npm_package_version}.nupkg --source ${npm_package_publishSource} --skip-duplicate",
+    "publish:log4net": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.Log4Net.${npm_package_version}.nupkg --source ${npm_package_publishSource} --skip-duplicate",
+    "publish:serilog": "cross-env globstar -- ${npm_package_dotnetPath} nuget push dist/${npm_package_name}.Serilog.${npm_package_version}.nupkg --source ${npm_package_publishSource} --skip-duplicate"
   },
   "keywords": [
     "logging"
