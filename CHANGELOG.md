@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/derekgreer/chronicle/compare/v0.0.3...v0.1.2) (2020-12-05)
+
+
+### Features
+
+* Add support for Serilog ([1ff0da1](https://github.com/derekgreer/chronicle/commit/1ff0da1ffb3e2b069f1ce4ee76956be52f6c45a1))
+* Remove scope use from OperationsTimer. ([81b8479](https://github.com/derekgreer/chronicle/commit/81b847931625672e79f28d41c97d899f48856c17))
+
 ### [0.1.1](https://github.com/derekgreer/chronicle/compare/v0.0.3...v0.1.1) (2020-12-04)
 
 
